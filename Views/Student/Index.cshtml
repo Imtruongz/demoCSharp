@@ -1,0 +1,64 @@
+﻿@model List<Demo.Models.Student>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Danh sách sinh viên</h2>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    table th, table td {
+        border: solid 1px black;
+        padding: 10px;
+    }
+</style>
+@Html.ActionLink("Thêm mới", "Create")
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>
+            @Html.LabelFor(m => m[0].Id)
+        </th>
+        <th>
+            @Html.LabelFor(m => m[0].FullName)
+        </th>
+        <th>
+            @Html.LabelFor(m => m[0].Gender)
+        </th>
+        <th>
+            @Html.LabelFor(m => m[0].BirthDay)
+        </th>
+        <th>
+            @Html.LabelFor(m => m[0].Note)
+        </th>
+        <th></th>
+    </tr>
+    @{
+        for(int i=0; i<Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Model[i].Id
+                </td>
+                <td>
+                    @Model[i].FullName
+                </td>
+                <td>
+                    @Model[i].Gender
+                </td>
+                <td>
+                    @Model[i].BirthDay
+                </td>
+                <td>
+                    @Model[i].Note
+                </td>
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new {Id = Model[i].Id})
+                    @Html.ActionLink("Xoá", "Delete", new {Id = Model[i].Id})
+                </td>
+            </tr>
+        }
+    }
+</table>

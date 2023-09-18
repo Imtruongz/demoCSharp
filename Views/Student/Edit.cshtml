@@ -1,0 +1,51 @@
+﻿@model Demo.Models.Student
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Chỉnh sửa sinh viên</h2>
+<style>
+    label {
+        display: inline-block;
+        width: 100px;
+        margin: 10px 0px;
+    }
+
+    textarea {
+        width: 190px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Id)
+        @Html.HiddenFor(m => m.Id)
+        @Html.DisplayFor(m => m.Id)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FullName)
+        @Html.TextBoxFor(m => m.FullName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Gender)
+        @Html.RadioButtonFor(m => m.Gender, true) Nam
+        @Html.RadioButtonFor(m => m.Gender, false) Nữ
+    </div>
+    <div>
+        @Html.LabelFor(m => m.BirthDay)
+        @Html.TextBoxFor(m => m.BirthDay)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Note)
+        @Html.TextAreaFor(m => m.Note)
+    </div>
+    <div>
+        <input type="submit" value="Chỉnh sửa" />
+    </div>
+}
